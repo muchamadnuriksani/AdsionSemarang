@@ -4,10 +4,8 @@ import android.util.Log
 import com.nbs.adsionsemarang.domain.main.MainInteractor
 import com.nbs.adsionsemarang.presentation.main.model.Movie
 
-class MainPresenter(private val view: MainContract.View): MainContract.Presenter,
+class MainPresenter(private val mainInteractor: MainInteractor, private val view: MainContract.View): MainContract.Presenter,
     MainInteractor.OnMovieListener{
-
-    val mainInteractor = MainInteractor()
 
     init {
         mainInteractor.listener = this

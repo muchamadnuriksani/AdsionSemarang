@@ -1,10 +1,6 @@
 package com.nbs.adsionsemarang.domain.main
 
-import com.nbs.adsionsemarang.BuildConfig
 import com.nbs.adsionsemarang.data.lib.ApiClient
-import com.nbs.adsionsemarang.data.lib.ApiService
-import com.nbs.adsionsemarang.data.lib.OkHttpClientFactory
-import com.nbs.adsionsemarang.data.lib.getParameterInterceptor
 import com.nbs.adsionsemarang.data.model.MovieResponse
 import com.nbs.adsionsemarang.presentation.main.model.Movie
 import com.nbs.adsionsemarang.presentation.main.model.getMovies
@@ -12,13 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainInteractor: MainUseCase{
-
-    private var apiRequest: ApiClient = ApiService.createService(
-        ApiClient::class.java,
-        OkHttpClientFactory.create(interceptors = arrayOf(getParameterInterceptor()), showDebugLog = true),
-        BuildConfig.BASE_URL
-    )
+class MainInteractor(private val apiRequest: ApiClient): MainUseCase{
 
     var listener: OnMovieListener? = null
 

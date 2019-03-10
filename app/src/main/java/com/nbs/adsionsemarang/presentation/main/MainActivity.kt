@@ -31,9 +31,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun showMovie(list: List<Movie>) {
+        var movieTitle: String? = ""
         for (movie in list){
             Log.d("Movie", movie.title)
+
+            with(movie){
+                movieTitle += "$title\n"
+            }
         }
+
+        tvMovieTitle.text = movieTitle?.trim()
     }
 
     override fun showError(message: String) {

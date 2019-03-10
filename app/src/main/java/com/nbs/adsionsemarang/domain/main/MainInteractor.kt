@@ -22,7 +22,13 @@ class MainInteractor(private val apiRequest: ApiClient): MainUseCase{
                 override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                     if (response.isSuccessful){
                        response.body()?.result.let {
-                           listener?.onMovieSuccess(getMovies(it))
+                           it?.let {items ->
+                               if (!items.isEmpty()){
+                                   listener?.onMovieSuccess(getMovies(it))
+                               }else{
+                                   listener?.onMovieFailed("Tidak ada data")
+                               }
+                           }
                        }
                     }
                 }

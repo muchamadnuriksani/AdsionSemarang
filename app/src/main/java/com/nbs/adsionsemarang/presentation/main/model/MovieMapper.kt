@@ -9,8 +9,10 @@ fun getMovie(movieItem: MovieItem): Movie =
 
 fun getMovies(listItem: List<MovieItem>?): List<Movie>{
     val list = ArrayList<Movie>()
-    for (movieItem in listItem!!){
-        list.add(getMovie(movieItem))
+    listItem?.let {
+        for (movieItem in it){
+            list.add(getMovie(movieItem))
+        }
     }
     return list
 }

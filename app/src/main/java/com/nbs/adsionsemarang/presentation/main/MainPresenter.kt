@@ -14,16 +14,19 @@ class MainPresenter(private val view: MainContract.View): MainContract.Presenter
     }
 
     override fun getMovie() {
+        view.showHideProgressBar(true)
         mainInteractor.getRemoteMovie()
     }
 
     override fun onMovieSuccess(list: List<Movie>?) {
+        view.showHideProgressBar(false)
         list?.let {
             view.showMovie(it)
         }
     }
 
     override fun onMovieFailed(message: String) {
+        view.showHideProgressBar(false)
         Log.d("Test", message)
         view.showError(message)
     }

@@ -17,9 +17,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        debug{
+        debug {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "BASE_IMAGE_URL", "\"http://image.tmdb.org/t/p/w200\"")
+            buildConfigField("String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/w200\"")
             buildConfigField("String", "API_KEY", "\"7012fc3c96c9f6f707e4edb9c9725718\"")
         }
 
@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
@@ -46,4 +46,5 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
     api 'android.arch.lifecycle:extensions:1.1.1'
     kapt "android.arch.lifecycle:compiler:1.1.1"
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 }

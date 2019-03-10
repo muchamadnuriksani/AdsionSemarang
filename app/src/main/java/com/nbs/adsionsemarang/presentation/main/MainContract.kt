@@ -7,6 +7,8 @@ interface MainContract {
         fun showMovie(list: List<Movie>)
 
         fun showError(message: String)
+
+        fun showHideProgressBar(isShown: Boolean)
     }
 
     interface Presenter{

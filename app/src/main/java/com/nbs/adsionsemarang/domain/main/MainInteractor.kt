@@ -7,7 +7,7 @@ import com.nbs.adsionsemarang.data.lib.OkHttpClientFactory
 import com.nbs.adsionsemarang.data.lib.getParameterInterceptor
 import com.nbs.adsionsemarang.data.model.MovieResponse
 import com.nbs.adsionsemarang.presentation.main.model.Movie
-import com.nbs.adsionsemarang.presentation.main.model.getMovies
+import com.nbs.adsionsemarang.mapper.getMovies
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
